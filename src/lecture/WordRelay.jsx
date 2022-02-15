@@ -1,4 +1,5 @@
-import React, { Component, useState } from "react";
+const React = require('react');
+const { useState } = require('react');
 
 const WordRelay = () => {
   const [state, setState] = useState({
@@ -10,6 +11,6 @@ const WordRelay = () => {
       <h1>{state.text}</h1>
     </div>
   )
-}
+};
 
 module.exports = WordRelay;
