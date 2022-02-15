@@ -24,6 +24,8 @@ const Gugudan = () => {
 
   // 정답체크
   const onClickForm = useCallback(() => {
+    console.log('answer :::', value)
+    
     // 입력된 정답이 맞는 답이라면
     if (parseInt(value) === first * second) {
       setResult('정답') // 결과 노출
@@ -42,17 +44,30 @@ const Gugudan = () => {
     }
   }, [first, second, value])
 
+  const inputRenderer = useCallback(() => {
+    const inputParam = {
+      ref: inputEl,
+      type: 'number',
+      value: value,
+      onChange: (e) => {
+        changeValue(e)
+      },
+      onKeyUp: (e) => {
+        // console.log('keyup ::: ', e)
+        if (e.keyCode === 13) {
+          onClickForm(e)
+        }
+      }
+    }
+    return (<input {...inputParam}/>)
+  }, [changeValue, onClickForm, value])
+
   return (
     <Fragment>
       <div>
         <h1>구구단예제</h1>
         <h2>{first} 곱하기 {second}는?</h2>
-        <input
-          ref={inputEl}
-          type='number'
-          value={value}
-          onChange={changeValue}
-        />
+        {inputRenderer()}
         <button onClick={onClickForm}>정답체크</button>
       </div>
       <div id={result}>{result}</div>
