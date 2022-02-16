@@ -42,12 +42,12 @@ const WordRelay = () => {
       ref: inputEl,
       type: 'text',
       value: value,
-      onChange: (e) => {
+      onChange: (e) => { // input 변경시 발생하는 이벤트
         changeValue(e)
       },
-      onKeyUp: (e) => {
+      onKeyUp: (e) => { // 키보드 입력시 발생
         // console.log('keyup ::: ', e)
-        if (e.keyCode === 13) {
+        if (e.keyCode === 13) { // 엔터키 입력시
           onClickForm(e)
         }
       }
