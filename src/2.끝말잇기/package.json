@@ -5,10 +5,10 @@
   "author": "NG",
   "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "webpack"
+    "dev": "webpack serve --env development"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "yarn": "^1.22.17"
@@ -17,8 +17,11 @@
     "@babel/core": "^7.17.2",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
     "babel-loader": "^8.2.3",
+    "react-refresh": "^0.11.0",
     "webpack": "^5.68.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }

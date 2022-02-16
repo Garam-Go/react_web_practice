@@ -67,6 +67,7 @@ const WordRelay = () => {
         <h2>제시어 : {state.word}</h2>
         {inputRenderer()}
         <button onClick={onClickForm}>정답체크</button>
+        <h2>핫로더 바로적용하기</h2>
       </div>
       <div id={state.result}>{state.result}</div>
     </Fragment>
