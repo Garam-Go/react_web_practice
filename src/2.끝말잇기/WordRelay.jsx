@@ -62,7 +62,7 @@ const WordRelay = () => {
         <h2>제시어 : {word}</h2>
         {inputRenderer()}
         <button onClick={onClickForm}>정답체크</button>
-        <h2>핫로더 바로적용하기</h2>
+        <h2>리액트 핫 로더</h2>
       </div>
       <div id={result}>{result}</div>
     </Fragment>
