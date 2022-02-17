@@ -1,4 +1,5 @@
 import React, { Fragment, ReactDom, useCallback, useState } from 'react';
+import Try from './Try'
 const getNumbers = () => { // 숫자 4개를 겹치지않고 랜덤하게 뽑는 함수
 
 }
@@ -43,7 +44,8 @@ const NumBaseball = () => {
       <ul>
         {tries.map((key, i) => {
           return (
-            <li>{key}</li>
+            <Try value={key} index={i}/>
+            // <li>{key}</li>
           )
         })}
       </ul>
