@@ -1,4 +1,9 @@
-const path = require('path')
+// 사용하는 모듈 문법
+// node = require
+// react = import, export
+
+// 웹팩은 node로 돌리기때문에 require사용
+const path = require('path') 
 const webpack = require('webpack')
 const RefreshWebpack = require('@pmmmwh/react-refresh-webpack-plugin')
 
@@ -12,8 +17,7 @@ module.exports ={
   
   // 중요한거
   entry: { // 입력
-    // app: ['./client.jsx', './WordRelay.jsx']
-    app: ['./client'] // client파일 안에 WordRelay 파일을 호출하고있어서 하나만 호출
+    app: ['./client'] // client파일 안에 NumBaseball 파일을 호출하고있어서 하나만 호출
   },
   // ↓
   module: {
@@ -39,14 +43,14 @@ module.exports ={
   }, 
   plugins: [
     new webpack.LoaderOptionsPlugin({ debug: true }),
-    new RefreshWebpack()
+    new RefreshWebpack() // 핫로더 적용
   ],
   // ↓
   output: { // 출력
     path: path.join(__dirname, 'dist'), // 현재 폴더경로에서 dist폴더를 합쳐줌
     filename: 'app.js',
   },
-  devServer: {
+  devServer: { // 웹팩 핫로더 적용 
     devMiddleware: { publicPath: '/dist/' },
     static: { directory: path.resolve(__dirname) },
     hot: true

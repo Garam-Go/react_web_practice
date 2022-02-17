@@ -13,9 +13,21 @@
 /*!*************************!*\
   !*** ./NumBaseball.jsx ***!
   \*************************/
-/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ \"./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js\");\n__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ \"./node_modules/react-refresh/runtime.js\");\n\n\n\nvar $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;\nvar $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(\n\t$ReactRefreshModuleId$\n);\n\nfunction $ReactRefreshModuleRuntime$(exports) {\n\tif (false) { var testMode, errorOverlay; }\n}\n\nif (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {\n\t$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);\n} else {\n\t$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);\n}\n\n//# sourceURL=webpack://numberbaseball/./NumBaseball.jsx?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Try__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Try */ \"./Try.jsx\");\n/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ \"./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js\");\n__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ \"./node_modules/react-refresh/runtime.js\");\n\nvar _s = __webpack_require__.$Refresh$.signature();\n\n\n\n\nconst getNumbers = () => {// 숫자 4개를 겹치지않고 랜덤하게 뽑는 함수\n};\n\nconst NumBaseball = () => {\n  _s();\n\n  const [answer, setAnswer] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(getNumbers()); // 맞출 문제 (4가지 숫자)\n\n  const [result, setResult] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(); // 제출한 답에 대한 결과\n\n  const [value, setValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(); // 현재 내가 입력한 답\n\n  const [tries, setTries] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(['1', '2', '3', '4', '5']); // 내가 시도한 답안\n  // input onChange Event\n\n  const onChange = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {}, []); // 답안제출\n\n  const onSubmit = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {}, []);\n  const inputRenderer = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {\n    const inputParams = {\n      maxLength: 4,\n      value: value,\n      onChange: e => {},\n      onKeyUp: k => {}\n    };\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", inputParams);\n  }, [value]);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, result), inputRenderer(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"\\uC2DC\\uB3C4\\uD69F\\uC218: \", tries.length), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"ul\", null, tries.map((key, i) => {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Try__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n      value: key,\n      index: i\n    }) // <li>{key}</li>\n    ;\n  })));\n};\n\n_s(NumBaseball, \"P4eMfwwWLOHrRNBvyPeoL/8SrjE=\");\n\n_c = NumBaseball;\n/* harmony default export */ __webpack_exports__[\"default\"] = (NumBaseball);\n\nvar _c;\n\n__webpack_require__.$Refresh$.register(_c, \"NumBaseball\");\n\nvar $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;\nvar $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(\n\t$ReactRefreshModuleId$\n);\n\nfunction $ReactRefreshModuleRuntime$(exports) {\n\tif (false) { var testMode, errorOverlay; }\n}\n\nif (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {\n\t$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);\n} else {\n\t$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);\n}\n\n//# sourceURL=webpack://numberbaseball/./NumBaseball.jsx?");
+
+/***/ }),
+
+/***/ "./Try.jsx":
+/*!*****************!*\
+  !*** ./Try.jsx ***!
+  \*****************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ \"./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js\");\n__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ \"./node_modules/react-refresh/runtime.js\");\n\n // 내가 시도한 배열을 가지고 list 노출하도록 렌더링 하는 컴포넌트\n\nconst Try = _ref => {\n  let {\n    value,\n    index\n  } = _ref;\n  console.log('try component :: value=%o, index=%o', value, index);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"li\", {\n    key: index\n  }, value);\n};\n\n_c = Try;\n/* harmony default export */ __webpack_exports__[\"default\"] = (Try);\n\nvar _c;\n\n__webpack_require__.$Refresh$.register(_c, \"Try\");\n\nvar $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;\nvar $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(\n\t$ReactRefreshModuleId$\n);\n\nfunction $ReactRefreshModuleRuntime$(exports) {\n\tif (false) { var testMode, errorOverlay; }\n}\n\nif (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {\n\t$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);\n} else {\n\t$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);\n}\n\n//# sourceURL=webpack://numberbaseball/./Try.jsx?");
 
 /***/ }),
 
@@ -23,9 +35,10 @@ eval("/* provided dependency */ var __react_refresh_utils__ = __webpack_require_
 /*!********************!*\
   !*** ./client.jsx ***!
   \********************/
-/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ \"./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js\");\n__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ \"./node_modules/react-refresh/runtime.js\");\n\n// import React from \"react\";\n// import ReactDom from \"react-dom\";\n// import Gugudan from \"../1. 구구단/Gugudan\";\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nconst ReactDom = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n\nconst NumBaseball = __webpack_require__(/*! ./NumBaseball */ \"./NumBaseball.jsx\");\n\nReactDom.render( /*#__PURE__*/React.createElement(NumBaseball, null), document.querySelector('#root'));\n\nvar $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;\nvar $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(\n\t$ReactRefreshModuleId$\n);\n\nfunction $ReactRefreshModuleRuntime$(exports) {\n\tif (false) { var testMode, errorOverlay; }\n}\n\nif (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {\n\t$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);\n} else {\n\t$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);\n}\n\n//# sourceURL=webpack://numberbaseball/./client.jsx?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_hot_loader_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-hot-loader/root */ \"./node_modules/react-hot-loader/root.js\");\n/* harmony import */ var _NumBaseball__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NumBaseball */ \"./NumBaseball.jsx\");\n/* provided dependency */ var __react_refresh_utils__ = __webpack_require__(/*! ./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ \"./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js\");\n__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! ./node_modules/react-refresh/runtime.js */ \"./node_modules/react-refresh/runtime.js\");\n\n// import React from \"react\";\n// import ReactDom from \"react-dom\";\n// import Gugudan from \"../1. 구구단/Gugudan\";\n\n\n // 리액트 핫 로더 적용\n\n\nconst Hot = (0,react_hot_loader_root__WEBPACK_IMPORTED_MODULE_3__.hot)(_NumBaseball__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n_c = Hot;\nreact_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Hot, null), document.querySelector('#root'));\n\nvar _c;\n\n__webpack_require__.$Refresh$.register(_c, \"Hot\");\n\nvar $ReactRefreshModuleId$ = __webpack_require__.$Refresh$.moduleId;\nvar $ReactRefreshCurrentExports$ = __react_refresh_utils__.getModuleExports(\n\t$ReactRefreshModuleId$\n);\n\nfunction $ReactRefreshModuleRuntime$(exports) {\n\tif (false) { var testMode, errorOverlay; }\n}\n\nif (typeof Promise !== 'undefined' && $ReactRefreshCurrentExports$ instanceof Promise) {\n\t$ReactRefreshCurrentExports$.then($ReactRefreshModuleRuntime$);\n} else {\n\t$ReactRefreshModuleRuntime$($ReactRefreshCurrentExports$);\n}\n\n//# sourceURL=webpack://numberbaseball/./client.jsx?");
 
 /***/ }),
 
@@ -1251,6 +1264,38 @@ eval("\n\nfunction checkDCE() {\n  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */\n
 
 /***/ }),
 
+/***/ "./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js ***!
+  \*******************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nfunction _interopDefault(e) {\n  return e && \"object\" == typeof e && \"default\" in e ? e.default : e;\n}\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: !0\n}));\n\nvar React = _interopDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n\nfunction AppContainer(e) {\n  return AppContainer.warnAboutHMRDisabled && (AppContainer.warnAboutHMRDisabled = !0, console.error(\"React-Hot-Loader: misconfiguration detected, using production version in non-production environment.\"), console.error(\"React-Hot-Loader: Hot Module Replacement is not enabled.\")), React.Children.only(e.children);\n}\n\n_c = AppContainer;\nAppContainer.warnAboutHMRDisabled = !1;\n\nvar hot = function e() {\n  return e.shouldWrapWithAppContainer ? function (e) {\n    return function (n) {\n      return React.createElement(AppContainer, null, React.createElement(e, n));\n    };\n  } : function (e) {\n    return e;\n  };\n};\n\nhot.shouldWrapWithAppContainer = !1;\n\nvar areComponentsEqual = function (e, n) {\n  return e === n;\n},\n    setConfig = function () {},\n    cold = function (e) {\n  return e;\n},\n    configureComponent = function () {};\n\nexports.AppContainer = AppContainer, exports.hot = hot, exports.areComponentsEqual = areComponentsEqual, exports.setConfig = setConfig, exports.cold = cold, exports.configureComponent = configureComponent;\n\nvar _c;\n\n__webpack_require__.$Refresh$.register(_c, \"AppContainer\");\n\n//# sourceURL=webpack://numberbaseball/./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js?");
+
+/***/ }),
+
+/***/ "./node_modules/react-hot-loader/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/react-hot-loader/index.js ***!
+  \************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nif (false) {} else if (false) {} else if (typeof window === 'undefined') {\n  // this is just server environment\n  module.exports = __webpack_require__(/*! ./dist/react-hot-loader.production.min.js */ \"./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js\");\n} else if (true) {\n  module.exports = __webpack_require__(/*! ./dist/react-hot-loader.production.min.js */ \"./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js\");\n  module.exports.AppContainer.warnAboutHMRDisabled = true;\n  module.exports.hot.shouldWrapWithAppContainer = true;\n} else { var jsFeaturesPresent, evalError, evalAllowed; }\n\n//# sourceURL=webpack://numberbaseball/./node_modules/react-hot-loader/index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/react-hot-loader/root.js":
+/*!***********************************************!*\
+  !*** ./node_modules/react-hot-loader/root.js ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("if (true) {\n  var hot = (__webpack_require__(/*! ./index */ \"./node_modules/react-hot-loader/index.js\").hot);\n\n  if (false) { var parent, cache; } else {\n    fallbackHot();\n  }\n} else {}\n\nfunction fallbackHot() {\n  exports.hot = function (a) {\n    return a;\n  };\n}\n\n//# sourceURL=webpack://numberbaseball/./node_modules/react-hot-loader/root.js?");
+
+/***/ }),
+
 /***/ "./node_modules/react-refresh/cjs/react-refresh-runtime.development.js":
 /*!*****************************************************************************!*\
   !*** ./node_modules/react-refresh/cjs/react-refresh-runtime.development.js ***!
@@ -1615,6 +1660,17 @@ eval("/**\n * @typedef {Object} WDSMetaObj\n * @property {boolean} enforceWs\n *
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/react refresh */
