@@ -66,6 +66,7 @@ const NumBaseball = () => {
       setValue('')
       setAnswer(getNumbers())
       setTries([])
+      setHint(convertAnswer(answer))
     } else {
       const answerArray = value.split('').map((v) => parseInt(v)) // 내가 입력한 값을 4자리 int화
       let strike = 0 // 입력한 값중 문제의 위치까지 같이 맞은경우
@@ -75,6 +76,7 @@ const NumBaseball = () => {
         setValue('')
         setAnswer(getNumbers())
         setTries([])
+        setHint(convertAnswer(answer))
       } else { // 10회 미만 틀릴경우
         for (let i = 0; i < 4; i += 1) {
           if (answerArray[i] === answer[i]) { // 입력한 숫자가 해당 문제 자릿수의 숫자와 맞을경우
