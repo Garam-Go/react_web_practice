@@ -21,7 +21,8 @@ module.exports ={
   },
   // ↓
   module: {
-    rules: [{ // 모듈의 규칙
+    rules: [
+      { // 모듈의 규칙
         test: /\.jsx?/, // 정규식으로 모듈을 사용할 파일들 적용
         loader: 'babel-loader', // 어떤 로더를 쓸것인지
         options: {
@@ -39,7 +40,8 @@ module.exports ={
             'react-refresh/babel'
           ]
         }
-    }],
+      },
+    ],
   }, 
   plugins: [
     new webpack.LoaderOptionsPlugin({ debug: true }),

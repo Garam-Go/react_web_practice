@@ -1,6 +1,8 @@
 import React, { Fragment, useCallback, useState } from 'react';
 import Try from './Try'
 
+const ANSWER_MAX_LENGTH = 4;
+
 const getNumbers = () => { // 숫자 4개를 겹치지않고 랜덤하게 뽑는 함수
   const candidate = [1,2,3,4,5,6,7,8,9]
   const array = []
@@ -11,16 +13,46 @@ const getNumbers = () => { // 숫자 4개를 겹치지않고 랜덤하게 뽑는
   return array
 }
 
+// input 입력된 숫자가 4자리 이상일경우
+const inputMaxLength = (value) => {
+  let num = value
+  if (value.length > ANSWER_MAX_LENGTH) {
+    num = num.slice(0, ANSWER_MAX_LENGTH)
+  }
+  return num
+}
+
+// 문제 4자리수를 가리는 로직
+const convertAnswer = (value) => {
+  const hide = value.join('').replace(/./gi, '*')
+  console.log(value, hide)
+  return hide
+}
+
+// 숙제
+// 2. 힌트 기능 추가해보기
+
 const NumBaseball = () => {
   const [answer, setAnswer] = useState(getNumbers()) // 맞출 문제 (4가지 숫자) ex) [1,3,5,7]
+  const [hint, setHint] = useState(convertAnswer(answer)) // 사용자에게 보여줄 문제 4자리수
   const [result, setResult] = useState() // 제출한 답에 대한 결과
   const [value, setValue] = useState('') // 현재 내가 입력한 답
   const [tries, setTries] = useState([]) // 내가 시도한 답안
 
+  // 힌트기능
+  const getHint = useCallback(() => {
+    // 클릭시 정답에서 맨 앞자리 한자리만 노출
+    const hintValue = answer.slice(0, 1)[0]
+    const hidevalue = answer.slice(1)
+    console.log('hint ::: ', hintValue, hidevalue)
+    setHint(hintValue + convertAnswer(hidevalue))
+  }, [answer])
+
   // input onChange Event
   const onChange = useCallback((changeValue) => {
-    console.log('onChange ::: ', changeValue)
-    setValue(changeValue)
+    const maxCut = inputMaxLength(changeValue)
+    console.log('onChange ::: ', maxCut)
+    setValue(maxCut)
   }, [])
 
   // 답안제출
@@ -29,7 +61,7 @@ const NumBaseball = () => {
     // join(,) = 특정 배열의 숫자를 , 로 구분지어서 하나의 문자열로 만듬
     // [1,2,3,4].join(,) = 1,2,3,4
     if (value === answer.join('')) { // 정답 맞춘경우 (문제를 공백으로 join = 4자리 문자열로 변환)
-      setResult('홈런! 다시 시도해주세요.')
+      setResult('홈런! 게임을 다시 시작합니다.')
       alert('홈런! 게임을 다시 시작합니다.')
       setValue('')
       setAnswer(getNumbers())
@@ -60,8 +92,8 @@ const NumBaseball = () => {
 
   const inputRenderer = useCallback(() => {
     const inputParams = {
-      maxlength: '4',
-      type: 'text',
+      maxlength: ANSWER_MAX_LENGTH,
+      type: 'number',
       value: value,
       onChange: (e) => {
         onChange(e.target.value)
@@ -88,6 +120,9 @@ const NumBaseball = () => {
         1. 문제의 4자리수 중 위치, 숫자가 같은경우 1글자당 1스트라이크<br/>
         2. 문제의 4자리수 중 위치가 다르지만 동일한 숫자기 있을경우 1글자당 1볼
       </p>
+      <h2>문제 : {hint}</h2>
+      <button onClick={getHint}>힌트?</button>
+      <p>힌트 클릭시 첫번째 문자가 노출됩니다.</p>
       {inputRenderer()}
       <button onClick={onSubmit}>정답입력</button>
       <p>{result}</p>
